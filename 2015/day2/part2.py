@@ -5,10 +5,6 @@ with open('2015/day2/input.txt') as txt:
 # with 'input' as array of lines
 
 def calRibbon(l, w, h):
-	lw = l*w
-	lh = l*h
-	wh = w*h
-
 	return 2*(min(l,w,h)+statistics.median([l,w,h])) + l*w*h;
 
 total = 0
