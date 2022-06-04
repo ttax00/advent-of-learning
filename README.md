@@ -1,16 +1,8 @@
-# advent-of-learning
+# Welcome to advent-of-learning
+A simple `advent-of-code` solution repo
 
-create env (dot file for organization): 
-``` python3 -m venv .env ```
+### Python
+Check it out [here](python/README.md)
 
-open env:
-``` source .env/bin/activate ```
-
-close env:
-``` deactivate ```
-
-Save requirements: 
-``` pip freeze > requirements.txt ```
-
-Gen env, run inside env:
-``` pip install -r requirements ```
+### Rust
+Check it out [here](rust/README.md)
