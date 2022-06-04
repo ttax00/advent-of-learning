@@ -1,7 +1,9 @@
 #!./.env/bin/python3
 
+import os
+
 gamma = ""
-with open('input.txt') as input:
+with open(os.path.dirname(__file__) + '/input.txt') as input:
     inputs = input.readlines()
     for i in range(len(inputs[0])-1):
         columns = [int(b[i]) for b in inputs]

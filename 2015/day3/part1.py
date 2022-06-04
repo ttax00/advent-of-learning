@@ -1,8 +1,9 @@
+import os
 from telnetlib import DO
 from turtle import left
 
 
-with open('2015/day3/input.txt') as txt:
+with open(os.path.dirname(__file__) + '/input.txt') as txt:
 	lines = txt.readlines()
 # with 'input' as array of lines
 UP    = '^'

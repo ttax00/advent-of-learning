@@ -1,7 +1,8 @@
 from asyncio import run_coroutine_threadsafe
+import os
 import re
 
-with open('2015/day5/input.txt') as txt:
+with open(os.path.dirname(__file__) + '/input.txt') as txt:
 	lines = txt.readlines()
 # with 'input' as array of lines
 

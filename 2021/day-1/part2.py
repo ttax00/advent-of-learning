@@ -1,7 +1,8 @@
 #!./.env/bin/python3
+import os
 import numpy
 
-with open('input.txt') as input:
+with open(os.path.dirname(__file__) + '/input.txt') as input:
     inputs = input.readlines()
     numbers = [int(i) for i in inputs]
 

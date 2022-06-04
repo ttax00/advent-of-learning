@@ -1,9 +1,10 @@
 #!./.env/bin/python3
 
 from os import minor
+import os
 
 
-with open('input.txt') as input:
+with open(os.path.dirname(__file__) + '/input.txt') as input:
     inputs = input.readlines()
 
 def widdle_oxy(arr,  index):

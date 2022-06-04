@@ -1,3 +1,5 @@
+import os
+
 up = 'up'
 down = 'down'
 forward = 'forward'
@@ -5,7 +7,7 @@ h_pos = 0
 aim = 0
 depth = 0
 
-with open('input.txt') as input:
+with open(os.path.dirname(__file__) + '/input.txt') as input:
     inputs = input.readlines()
     for i in inputs:
         command = i.split(' ')[0]

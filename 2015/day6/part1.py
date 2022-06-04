@@ -1,10 +1,11 @@
 import array
 from ast import parse
+import os
 from tkinter.tix import Tree
 from typing import List
 
 
-with open('2015/day6/input.txt') as txt:
+with open(os.path.dirname(__file__) + '/input.txt') as txt:
 	lines = txt.readlines()
 # with 'input' as array of lines
 

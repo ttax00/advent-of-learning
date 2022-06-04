@@ -1,6 +1,7 @@
 import hashlib
+import os
 
-with open('2015/day4/input.txt') as txt:
+with open(os.path.dirname(__file__) + '/input.txt') as txt:
 	lines = txt.readlines()
 # with 'input' as array of lines
 ZEROES = 6
