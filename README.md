@@ -2,7 +2,7 @@
 A simple `advent-of-code` solution repo
 
 ### Python
-Check it out [here](python/README.md)
+Check it out [here](./python)
 
 ### Rust
-Check it out [here](rust/README.md)
+Check it out [here](./rust)
