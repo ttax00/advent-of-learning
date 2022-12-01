@@ -28,13 +28,12 @@ impl FromStr for Elves {
             .trim()
             .split("\n\n")
             .map(|elf| {
-                let acc = elf
-                    .split("\n")
-                    .fold(0, |acc, itm| acc + itm.parse::<u32>().unwrap());
-                acc
+                elf.split("\n")
+                    .fold(0, |acc, itm| acc + itm.parse::<u32>().unwrap())
             })
             .collect::<Vec<u32>>();
-        calories.sort_by(|a, b| b.cmp(&a));
+        calories.sort();
+        calories.reverse();
         Ok(Elves { calories })
     }
 }
