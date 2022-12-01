@@ -17,7 +17,10 @@ impl AdventAPI {
             .join(&format!("{}/day/{}/input", year, day))
             .unwrap();
         let res = self.client.get(req).send().await?;
-        Ok(res.text().await?)
+        match res.error_for_status() {
+            Ok(res) => Ok(res.text().await?),
+            Err(e) => Err(e),
+        }
     }
 }
 
@@ -54,6 +57,18 @@ mod tests {
     #[test]
     fn dotenv_works() {
         dotenv().ok();
-        env::var("SESSION").expect("SESSION env is not set.");
+        let env = env::var("SESSION").expect("SESSION env is not set.");
+        if env.is_empty() || env == "REPLACE_ME_WITH_SESSION_KEY" {
+            panic!("SESSION cookie is invalid: \"{}\"", env);
+        }
+    }
+
+    #[tokio::test]
+    async fn api_works() {
+        let client = AdventAPI::default();
+        match client.get_input(2022, 1).await {
+            Ok(_) => {}
+            Err(e) => panic!("Check your session cookie is correct. Details: {}", e),
+        };
     }
 }
