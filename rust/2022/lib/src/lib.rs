@@ -45,7 +45,7 @@ impl Default for AdventAPI {
 pub async fn get_input(year: u16, day: u8) -> String {
     let path = RelativePath::new(&format!("cache/{}-{}.txt", year, day)).to_path(".");
     if let Ok(s) = fs::read_to_string(&path) {
-        s
+        s.trim().to_string()
     } else {
         let client = AdventAPI::default();
         match client.get_input(year, day).await {
