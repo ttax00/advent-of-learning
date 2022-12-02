@@ -1,6 +1,7 @@
-use std::{env, str::FromStr};
+use std::{env, fs, str::FromStr};
 
 use dotenv::dotenv;
+use relative_path::RelativePath;
 use reqwest::{
     header::{HeaderMap, HeaderValue},
     Client, Error, Url,
@@ -18,7 +19,7 @@ impl AdventAPI {
             .unwrap();
         let res = self.client.get(req).send().await?;
         match res.error_for_status() {
-            Ok(res) => Ok(res.text().await?),
+            Ok(res) => Ok(res.text().await?.trim().to_string()),
             Err(e) => Err(e),
         }
     }
@@ -42,10 +43,19 @@ impl Default for AdventAPI {
 }
 
 pub async fn get_input(year: u16, day: u8) -> String {
-    let client = AdventAPI::default();
-    match client.get_input(year, day).await {
-        Ok(r) => r,
-        Err(e) => panic!("{}", e),
+    let path = RelativePath::new(&format!("cache/{}-{}.txt", year, day)).to_path(".");
+    if let Ok(s) = fs::read_to_string(&path) {
+        s
+    } else {
+        let client = AdventAPI::default();
+        match client.get_input(year, day).await {
+            Ok(r) => {
+                fs::create_dir_all("cache").unwrap();
+                fs::write(&path, &r).unwrap();
+                r
+            }
+            Err(e) => panic!("{}", e),
+        }
     }
 }
 
