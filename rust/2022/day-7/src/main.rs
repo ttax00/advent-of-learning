@@ -101,7 +101,7 @@ fn part1(s: &str) -> u32 {
     let v =
         hm.keys()
             .map(|k| get_dir_size(k, &hm))
-            .fold(0, |acc, n| if n <= &100000 { acc + n } else { acc });
+            .fold(0, |acc, n| if n <= 100000 { acc + n } else { acc });
     v
 }
 
