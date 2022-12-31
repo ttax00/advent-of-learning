@@ -87,6 +87,6 @@ mod test {
 	CrZsJsPPZsGzwwsLwLmpwMDw"#;
     #[test]
     fn test_parse() {
-        let e: Elves = SAMPLE.parse().unwrap();
+        let _e: Elves = SAMPLE.parse().unwrap();
     }
 }

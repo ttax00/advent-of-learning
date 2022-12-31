@@ -31,7 +31,7 @@ impl Elves {
             }
         }
         let mut s = String::new();
-        for (i, v) in stacks.iter().sorted_by(|a, b| Ord::cmp(a.0, b.0)) {
+        for (_, v) in stacks.iter().sorted_by(|a, b| Ord::cmp(a.0, b.0)) {
             s.push_str(v.last().unwrap());
         }
         s
@@ -49,7 +49,7 @@ impl Elves {
         }
 
         let mut s = String::new();
-        for (i, v) in stacks.iter().sorted_by(|a, b| Ord::cmp(a.0, b.0)) {
+        for (_, v) in stacks.iter().sorted_by(|a, b| Ord::cmp(a.0, b.0)) {
             s.push_str(v.last().unwrap());
         }
         s
