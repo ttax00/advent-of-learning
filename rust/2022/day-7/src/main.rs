@@ -1,8 +1,4 @@
-use std::{
-    collections::{HashMap, HashSet},
-    ffi::OsStr,
-    path::{Path, PathBuf},
-};
+use std::{collections::HashMap, path::PathBuf};
 
 #[tokio::main]
 async fn main() {
