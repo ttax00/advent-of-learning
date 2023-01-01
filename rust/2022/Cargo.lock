@@ -121,6 +121,10 @@ dependencies = [
 [[package]]
 name = "day-8"
 version = "0.1.0"
+dependencies = [
+ "lib",
+ "tokio",
+]
 
 [[package]]
 name = "dotenv"
